@@ -39,7 +39,7 @@ class CustomEnvironment(Environment):
 
 
 def create_jinja_env():
-    """Create Jinja environment with custom settings"""
+    """Create Jinja2 environment with custom settings"""
     templates_dir = Path(__file__).parent / 'templates'
     loader = FileSystemLoader(templates_dir)
     env = CustomEnvironment(loader=loader)
@@ -69,7 +69,7 @@ model: Llama | None = None
 
 
 def initialize_model():
-    model_path = Path('models/Cydonia-22B-v2q-Q2_K.gguf')
+    model_path = Path('/runpod-volume/Donnager-70B-v1-Q4_K_M.gguf')
     if not model_path.exists():
         raise FileNotFoundError(f'Model file not found at {model_path}')
 
